@@ -36,7 +36,10 @@ class ControllerCertificado {
         return response?.let {            ResponseEntity(response, HttpStatus.OK)        } ?: ResponseEntity<Certificado>( HttpStatus.NOT_FOUND)    }
 
 
-
+    @PostMapping
+    fun save (@RequestBody  certificado: Certificado): Certificado{
+        return serviceCertificado.save(certificado)
+    }
 
 
 
