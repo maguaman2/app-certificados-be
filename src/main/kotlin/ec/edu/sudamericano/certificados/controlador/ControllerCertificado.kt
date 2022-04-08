@@ -41,8 +41,11 @@ class ControllerCertificado {
         return serviceCertificado.save(certificado)
     }
 
-
-
+//agregar put
+    @PutMapping
+    fun update (@RequestBody certificado: Certificado): Certificado{
+        return serviceCertificado.update(certificado)
+    }
 
 
 }

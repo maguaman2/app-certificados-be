@@ -30,18 +30,89 @@ class ServiceCertificado {
     fun save(certificado: Certificado): Certificado {
         try {
 
-            certificado.nombres?.takeIf { it.trim().isNotEmpty() }
-                ?: throw java.lang.Exception("nombre no puede ser vacio")
-
-
             certificado.cedula?.takeIf { it.trim().isNotEmpty() }
-                ?: throw java.lang.Exception("apellidos no puede ser vacio")
+                ?: throw java.lang.Exception("Cedula no puede ser vacio")
+
+            certificado.nombres?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Nombre no puede ser vacio")
+
+            certificado.email?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Email no puede ser vacio")
+
+            certificado.fechas?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Fechas no puede ser vacio")
+
+            certificado.rol?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Rol no puede ser vacio")
+
+            certificado.capacitador?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Capacitador no puede ser vacio")
+
+            certificado.codigo?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Codigo no puede ser vacio")
+
+            certificado.area?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Area no puede ser vacio")
+
+            certificado.curso?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Curso no puede ser vacio")
+
+            certificado.objetivo?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Objetivo no puede ser vacio")
+
+            certificado.contenidos?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Contenidos no puede ser vacio")
 
             return repositorioCertificado.save(certificado)
         } catch (ex: Exception) {
             throw ResponseStatusException(
                 HttpStatus.NOT_FOUND, ex.message
             )
+        }
+
+    }
+
+    fun update(certificado: Certificado): Certificado {
+        try {
+            certificado.cedula?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Cedula no puede ser vacio")
+
+            certificado.nombres?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Nombres no puede ser vacio")
+
+            certificado.email?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Email no puede ser vacio")
+
+            certificado.fechas?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Fechas no puede ser vacio")
+
+            certificado.rol?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Rol puede ser vacio")
+
+            certificado.capacitador?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Capacitador no puede ser vacio")
+
+            certificado.codigo?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Codigo no puede ser vacio")
+
+            certificado.area?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Area no puede ser vacio")
+
+            certificado.curso?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Curso no puede ser vacio")
+
+            certificado.objetivo?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Objetivo no puede ser vacio")
+
+            certificado.contenidos?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Contenidos no puede ser vacio")
+
+
+            repositorioCertificado.findById(certificado.id)
+                ?: throw Exception()
+            return repositorioCertificado.save(certificado)
+        }catch (ex:Exception){
+            throw Exception()
         }
 
     }
