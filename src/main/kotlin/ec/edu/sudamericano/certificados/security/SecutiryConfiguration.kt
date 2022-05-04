@@ -26,10 +26,10 @@ class SecutiryConfiguration: WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
         http.csrf()?.disable()
-            ?.authorizeRequests()?.antMatchers("/**/auth")
-            ?.permitAll()?.anyRequest()?.authenticated()
-            ?.and()?.sessionManagement()
-            ?.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                ?.authorizeRequests()?.antMatchers("/**/login/auth","/certificado/cedula/**","/certificado/id/**")
+                ?.permitAll()?.anyRequest()?.authenticated()
+                ?.and()?.sessionManagement()
+                ?.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         http.addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter::class.java)
     }
     @Bean

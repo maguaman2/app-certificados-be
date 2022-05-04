@@ -23,7 +23,7 @@ class ControllerCertificado {
 
     }
 
-    @GetMapping("/{cedula}")
+    @GetMapping("/cedula/{cedula}")
     fun getBySystemId(@PathVariable("cedula") cedula:String): ResponseEntity<*>
     {
         val response = serviceCertificado.getCertificadoByCedulaId(cedula)
@@ -41,7 +41,7 @@ class ControllerCertificado {
         return serviceCertificado.save(certificado)
     }
 
-//agregar put
+    //agregar put
     @PutMapping
     fun update (@RequestBody certificado: Certificado): Certificado{
         return serviceCertificado.update(certificado)
