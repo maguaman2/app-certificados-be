@@ -31,6 +31,7 @@ class SecutiryConfiguration: WebSecurityConfigurerAdapter() {
                 ?.and()?.sessionManagement()
                 ?.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         http.addFilterBefore(jwtFilterRequest, UsernamePasswordAuthenticationFilter::class.java)
+        http.cors()
     }
     @Bean
     override fun authenticationManagerBean(): AuthenticationManager {

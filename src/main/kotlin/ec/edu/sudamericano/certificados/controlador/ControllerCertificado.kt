@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 @Controller
 @RestController
 @RequestMapping("/certificado")
-@CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT])
+@CrossOrigin(origins = ["http://localhost:3000"], methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT])
 class ControllerCertificado {
 
 
@@ -42,6 +42,8 @@ class ControllerCertificado {
     }
 
     //agregar put
+
+
     @PutMapping
     fun update (@RequestBody certificado: Certificado): Certificado{
         return serviceCertificado.update(certificado)
