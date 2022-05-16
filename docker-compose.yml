@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  #configuracion para postgres
+  dbpostgres:
+    container_name: postgres
+    image: postgres:12.1
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORRD=postgres
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  #configuracion para pgadmin
+  pgamin:
+
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=rperez.ivan147@sudamericano.edu.ec
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - "8090:80"
+volumes:
+  dbdata:
+    driver: local
