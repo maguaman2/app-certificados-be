@@ -36,7 +36,7 @@ class ServiceCertificado {
             certificado.nombres?.takeIf { it.trim().isNotEmpty() }
                 ?: throw java.lang.Exception("Nombre no puede ser vacio")
 
-            certificado.email?.takeIf { it.trim().isNotEmpty() }
+            certificado.link?.takeIf { it.trim().isNotEmpty() }
                 ?: throw java.lang.Exception("Email no puede ser vacio")
 
             certificado.fechas?.takeIf { it.trim().isNotEmpty() }
@@ -63,6 +63,9 @@ class ServiceCertificado {
             certificado.contenidos?.takeIf { it.trim().isNotEmpty() }
                 ?: throw java.lang.Exception("Contenidos no puede ser vacio")
 
+            certificado.horas?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("horas no puede ser vacio")
+
             return repositorioCertificado.save(certificado)
         } catch (ex: Exception) {
             throw ResponseStatusException(
@@ -80,7 +83,7 @@ class ServiceCertificado {
             certificado.nombres?.takeIf { it.trim().isNotEmpty() }
                 ?: throw java.lang.Exception("Nombres no puede ser vacio")
 
-            certificado.email?.takeIf { it.trim().isNotEmpty() }
+            certificado.link?.takeIf { it.trim().isNotEmpty() }
                 ?: throw java.lang.Exception("Email no puede ser vacio")
 
             certificado.fechas?.takeIf { it.trim().isNotEmpty() }
@@ -105,6 +108,9 @@ class ServiceCertificado {
                 ?: throw java.lang.Exception("Objetivo no puede ser vacio")
 
             certificado.contenidos?.takeIf { it.trim().isNotEmpty() }
+                ?: throw java.lang.Exception("Contenidos no puede ser vacio")
+
+            certificado.horas?.takeIf { it.trim().isNotEmpty() }
                 ?: throw java.lang.Exception("Contenidos no puede ser vacio")
 
 

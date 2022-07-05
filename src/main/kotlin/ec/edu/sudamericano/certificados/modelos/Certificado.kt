@@ -11,7 +11,7 @@ class Certificado {
 
     var cedula: String? = null
     var nombres: String? = null
-    var email: String? = null
+    var link: String? = null
     var fechas: String? = null
     var rol: String? = null
     var capacitador: String? = null
@@ -20,6 +20,7 @@ class Certificado {
     var curso: String? = null
     var objetivo: String? = null
     var contenidos: String? = null
+    var horas: String? = null
 
 
 
