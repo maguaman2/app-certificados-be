@@ -18,7 +18,7 @@ services:
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
-      - PGADMIN_DEFAULT_EMAIL=rperez.ivan147@sudamericano.edu.ec
+      - PGADMIN_DEFAULT_EMAIL=maguaman2@sudamericano.edu.ec
       - PGADMIN_DEFAULT_PASSWORD=admin
     ports:
       - "8090:80"
